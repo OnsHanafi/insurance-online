@@ -12,4 +12,7 @@ import java.util.List;
 public interface InsuranceRepository extends JpaRepository<Insurance,Integer> {
     @Query("SELECT i FROM Insurance i WHERE i.beneficiary.BenefId = :idBf")
     List<Insurance> findInsuranceByBeneficiaryBenefId(@Param("idBf")int idBf);
+
+    @Query("SELECT i FROM Insurance i WHERE i.beneficiary.cin = :cinBf ")
+    Insurance findInsuranceByBeneficiaryCin(@Param("cinBf") int cinBf);
 }

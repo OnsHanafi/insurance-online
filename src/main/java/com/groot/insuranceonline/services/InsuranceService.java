@@ -8,4 +8,5 @@ public interface InsuranceService {
     Insurance addInsurance(Insurance a, Integer cinBf, String matricule);
 
 
+    float getMontantBybf(int cinBf);
 }

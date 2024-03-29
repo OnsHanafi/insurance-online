@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/insurance")
+@RequestMapping("/api/insurances")
 @RequiredArgsConstructor
 public class InsuranceController {
 
@@ -15,6 +15,12 @@ public class InsuranceController {
     @PostMapping("/add/bf/{cin-bf}/contract/{matricule}")
      public Insurance ajouterAssurance(@RequestBody Insurance a, @PathVariable("cin-bf") Integer cinBf,@PathVariable("matricule") String matricule){
          return this.insuranceService.addInsurance(a,cinBf,matricule);
+     }
+
+     @GetMapping("/montant-bf/{cinBf}")
+    public float getMontantBf (@PathVariable int cinBf){
+         System.out.println(cinBf);
+        return this.insuranceService.getMontantBybf(cinBf);
      }
 
 }
