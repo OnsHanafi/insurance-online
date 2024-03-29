@@ -3,10 +3,12 @@ package com.groot.insuranceonline.servicesImpl;
 import com.groot.insuranceonline.entities.Contract;
 import com.groot.insuranceonline.entities.Insurance;
 import com.groot.insuranceonline.repositories.ContractRepository;
+import com.groot.insuranceonline.repositories.InsuranceRepository;
 import com.groot.insuranceonline.services.BeneficaryService;
 import com.groot.insuranceonline.services.ContractService;
 import com.groot.insuranceonline.services.InsuranceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -19,20 +21,17 @@ public class ContractServiceImpl implements ContractService {
 
 
     private final ContractRepository contractRepository;
-    private  final InsuranceService insuranceService;
+    private  final InsuranceRepository insuranceRepository;
 
 
     @Override
     public Contract addContrat(Contract c) {
-
         return this.contractRepository.save(c);
-
-
     }
 
     @Override
     public Contract getOldestContractBeneficairy(int idBf) {
-        List<Insurance> insurances = this.insuranceService.getInsuranceByBenfId(idBf);
+        List<Insurance> insurances = this.insuranceRepository.findInsuranceByBeneficiaryBenefId(idBf);
 
        Optional<Contract> oldestContract = insurances.stream()
                 .map(Insurance::getContract)

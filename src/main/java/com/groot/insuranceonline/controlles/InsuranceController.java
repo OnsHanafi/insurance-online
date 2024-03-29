@@ -13,8 +13,8 @@ public class InsuranceController {
     private final InsuranceService insuranceService;
 
     @PostMapping("/add/bf/{cin-bf}/contract/{matricule}")
-    public Insurance ajouterAssurance(@RequestBody Insurance a, @PathVariable("cin-bf") Integer cinBf,@PathVariable("matricule") String matricule){
-        return this.insuranceService.addInsurance(a,cinBf,matricule);
-    }
+     public Insurance ajouterAssurance(@RequestBody Insurance a, @PathVariable("cin-bf") Integer cinBf,@PathVariable("matricule") String matricule){
+         return this.insuranceService.addInsurance(a,cinBf,matricule);
+     }
 
 }

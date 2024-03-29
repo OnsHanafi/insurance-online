@@ -22,4 +22,6 @@ public class ContractController {
         return this.contractService.getOldestContractBeneficairy(idBf);
     }
 
+
+
 }

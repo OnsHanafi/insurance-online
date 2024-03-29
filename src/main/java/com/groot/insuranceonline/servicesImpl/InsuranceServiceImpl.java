@@ -23,8 +23,6 @@ public class InsuranceServiceImpl implements InsuranceService {
 
     @Override
     public Insurance addInsurance(Insurance a, Integer cinBf, String matricule) {
-        System.out.println(cinBf);
-        System.out.printf(matricule);
         Beneficiary bf = this.beneficaryService.getBfByCin(cinBf);
         Set<Insurance> ins = bf.getInsurances();
         Contract contract = this.contractService.getByMatricule(matricule);
@@ -33,8 +31,5 @@ public class InsuranceServiceImpl implements InsuranceService {
         return this.insuranceRepository.save(a);
     }
 
-    @Override
-    public List<Insurance> getInsuranceByBenfId(int idBf) {
-        return this.insuranceRepository.findInsuranceByBeneficiaryId(idBf);
-    }
+
 }
