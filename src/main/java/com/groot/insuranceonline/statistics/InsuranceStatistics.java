@@ -36,6 +36,7 @@ public class InsuranceStatistics {
         for (Map.Entry<Integer,Integer>entry: stats.entrySet()){
             System.out.println("NB_ASSURANCES :" +entry.getKey()+ " CIN :"+entry.getValue());
         }
+        System.out.println("-------------------------------------------------");
 
 
 
